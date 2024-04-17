@@ -25,16 +25,15 @@ export default async function RootLayout({
 			<head>
 				<link
 					rel="stylesheet"
-					href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css"></link>
+					href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css"
+				></link>
 				<link
 					rel="stylesheet"
-					href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></link>
+					href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+				></link>
 			</head>
 			<body className={inter.className}>
-				<nav
-					className="navbar"
-					role="navigation"
-					aria-label="main navigation">
+				<nav className="navbar" role="navigation" aria-label="main navigation">
 					<div className="navbar-brand">
 						<Link className="navbar-item" href="/">
 							<Image
@@ -49,14 +48,6 @@ export default async function RootLayout({
 					<div className="navbar-menu" id="navbar-menu-unique">
 						<Link href="/" className="navbar-item">
 							Home
-						</Link>
-						{pb.authStore.isValid && (
-							<Link href="/secure-link" className="navbar-item">
-								Secure link
-							</Link>
-						)}
-						<Link href="/unsecured-link" className="navbar-item">
-							Unsecured link
 						</Link>
 						<div className="navbar-end">
 							<div className="navbar-item">
@@ -76,14 +67,10 @@ export default async function RootLayout({
 
 								{!pb.authStore.isValid && (
 									<div className="buttons">
-										<Link
-											className="button is-primary"
-											href="/sign-up">
+										<Link className="button is-primary" href="/sign-up">
 											<strong>Sign up</strong>
 										</Link>
-										<Link
-											className="button is-light"
-											href="/sign-in">
+										<Link className="button is-light" href="/sign-in">
 											Log in
 										</Link>
 									</div>
@@ -92,9 +79,7 @@ export default async function RootLayout({
 						</div>
 					</div>
 				</nav>
-				<div className="hero">
-					<div className="hero-body">{children}</div>
-				</div>
+				<div>{children}</div>
 			</body>
 		</html>
 	);
