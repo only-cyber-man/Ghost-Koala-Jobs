@@ -23,7 +23,7 @@ export const Title = () => {
 						animate
 						animateDuration={10}
 						animateDirection={"horizontal"}>
-						Example App Name
+						Ghost Koala Jobs
 					</LinearTextGradient>
 				</b>
 			</h1>

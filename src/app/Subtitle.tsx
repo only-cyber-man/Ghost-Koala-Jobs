@@ -4,8 +4,8 @@ export const Subtitle = () => {
 	return (
 		<>
 			<h2 className="subtitle">
-				This is an example project description{" "}
-				<a href="mailto:example-app-name@cyber-man.pl">Created by tomek7667</a>
+				Website that displays a table with ghost koala results{" "}
+				<a href="mailto:ghost-koala-jobs@cyber-man.pl">Created by tomek7667</a>
 			</h2>
 		</>
 	);
