@@ -48,40 +48,47 @@ export default async function Main({
 						</tr>
 					</thead>
 					<tbody>
-						{emailSents.map((emailSent) => (
-							<tr key={emailSent.id}>
-								<td>{emailSent.sessionId}</td>
-								<td>
-									{emailSent.resultsUrl.length === 0 ? (
-										"No result"
-									) : (
-										<Link href={emailSent.resultsUrl} target="_blank">
+						{emailSents.map((emailSent) => {
+							const passwd = emailSent.activateUrl
+								.split("passwd=")[1]
+								.split("&")[0];
+							const id = emailSent.activateUrl.split("id=")[1].split("&")[0];
+							const submitLink = `https://www.kegg.jp/kegg-bin/blastkoala_result?id=${id}&passwd=${passwd}&type=ghostkoala`;
+							return (
+								<tr key={emailSent.id}>
+									<td>{emailSent.sessionId}</td>
+									<td>
+										{emailSent.resultsUrl.length === 0 ? (
+											"No result"
+										) : (
+											<Link href={submitLink} target="_blank">
+												Click here
+											</Link>
+										)}
+									</td>
+									<td>
+										<Link href={emailSent.activateUrl} target="_blank">
 											Click here
 										</Link>
-									)}
-								</td>
-								<td>
-									<Link href={emailSent.activateUrl} target="_blank">
-										Click here
-									</Link>
-								</td>
-								<td>{emailSent.dateReceived.toLocaleString()}</td>
-								<td>{emailSent.completelyDone.toString()}</td>
-								<td>{emailSent.ghostkoalaStatus}</td>
-								<td>
-									{emailSent.resultBase64.length > 0 ? (
-										<a
-											href={`data:application/octet-stream;base64,${emailSent.resultBase64}`}
-											download={`result_${emailSent.sessionId}.gz`}
-										>
-											Download
-										</a>
-									) : (
-										"No result"
-									)}
-								</td>
-							</tr>
-						))}
+									</td>
+									<td>{emailSent.dateReceived.toLocaleString()}</td>
+									<td>{emailSent.completelyDone.toString()}</td>
+									<td>{emailSent.ghostkoalaStatus}</td>
+									<td>
+										{emailSent.resultBase64.length > 0 ? (
+											<a
+												href={`data:application/octet-stream;base64,${emailSent.resultBase64}`}
+												download={`result_${emailSent.sessionId}.gz`}
+											>
+												Download
+											</a>
+										) : (
+											"No result"
+										)}
+									</td>
+								</tr>
+							);
+						})}
 					</tbody>
 				</table>
 			</div>
