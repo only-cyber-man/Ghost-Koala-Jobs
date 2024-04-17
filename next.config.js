@@ -2,7 +2,7 @@
 const nextConfig = {
 	output: "standalone",
 	env: {
-		PORT: "4445",
+		PORT: "4463",
 	},
 };
 
